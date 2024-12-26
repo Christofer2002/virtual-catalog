@@ -63,13 +63,19 @@ flyway.password=YOUR_PASSWORD
 flyway.locations=filesystem:./Migrations
 
 4. Apply Flyway migrations
+```bash
 flyway migrate
+```
 
-5. Restore backend dependencies
+6. Restore backend dependencies
+```bash
 dotnet restore
+```
 
-6. Run the backend server
+7. Run the backend server
+```bash
 dotnet run
+```
 The frontend will now be available at `http://localhost:7278`
 
 ---
@@ -77,16 +83,22 @@ The frontend will now be available at `http://localhost:7278`
 ### Frontend (Virtual-Catalog)
 
 1. Navigate to the frontend directory
+```bash
 cd ../Virtual-Catalog
+```
 
-2. Install dependencies
+3. Install dependencies
+```bash
 npm install
+```
 
-3. Set up environment variables
-# Create a `.env` file in the frontend root with the following content:
+4. Set up environment variables
+### Create a `.env` file in the frontend root with the following content:
 VITE_API_BASE_URL=https://localhost:5001/api
 
 4. Run the development server
+```bash
 npm run dev
+```
 The frontend will now be available at `http://localhost:5173`
 
