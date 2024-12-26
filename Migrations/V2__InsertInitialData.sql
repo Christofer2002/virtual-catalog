@@ -77,32 +77,32 @@ END
 IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'admin@example.com')
 BEGIN
     INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-    VALUES ('Admin', 'User', 'admin@example.com', '123456789', 'admin123');
+    VALUES ('Admin', 'User', 'admin@example.com', '123456789', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9');
 END
 
 IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'user@example.com')
 BEGIN
     INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-    VALUES ('Christofer', 'Chaves', 'user@example.com', '987654321', 'user123');
+    VALUES ('Christofer', 'Chaves', 'user@example.com', '987654321', 'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446');
 END
 
 -- Insert additional Users
 IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'john.doe@example.com')
 BEGIN
     INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-    VALUES ('John', 'Doe', 'john.doe@example.com', '123123123', 'password123');
+    VALUES ('John', 'Doe', 'john.doe@example.com', '123123123', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');
 END
 
 IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'jane.doe@example.com')
 BEGIN
     INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-    VALUES ('Jane', 'Doe', 'jane.doe@example.com', '321321321', 'password123');
+    VALUES ('Jane', 'Doe', 'jane.doe@example.com', '321321321', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');
 END
 
 IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'mike.smith@example.com')
 BEGIN
     INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-    VALUES ('Mike', 'Smith', 'mike.smith@example.com', '111222333', 'password123');
+    VALUES ('Mike', 'Smith', 'mike.smith@example.com', '111222333', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');
 END
 
 -- Assign Roles to Users

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\flyway.conf||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -113,10 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
       "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:migrations\\v2__insertinitialdata.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtual-catalog\\migrations\\v1__initialcreate.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:migrations\\v1__initialcreate.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -126,56 +122,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:17:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:19:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\README.md",
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAC8AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2024-12-26T09:14:17.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "V1__InitialCreate.sql ",
+              "DocumentIndex": 2,
+              "Title": "V1__InitialCreate.sql",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\Migrations\\V1__InitialCreate.sql",
               "RelativeDocumentMoniker": "Migrations\\V1__InitialCreate.sql",
               "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\Migrations\\V1__InitialCreate.sql",
               "RelativeToolTip": "Migrations\\V1__InitialCreate.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-26T09:05:18.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T09:05:18.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "V2__InsertInitialData.sql ",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\Migrations\\V2__InsertInitialData.sql",
               "RelativeDocumentMoniker": "Migrations\\V2__InsertInitialData.sql",
@@ -235,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
