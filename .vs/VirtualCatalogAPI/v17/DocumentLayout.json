@@ -1,0 +1,431 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\businesses\\users\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:businesses\\users\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\businesses\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:businesses\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\users\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\users\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\users\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\users\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\users\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\users\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\users\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\users\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\businesses\\users\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:businesses\\users\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\businesses\\users\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:businesses\\users\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\controllers\\users\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:controllers\\users\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\users\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\users\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\controllers\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:controllers\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\controllers\\categories\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:controllers\\categories\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\controllers\\users\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:controllers\\users\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\auth\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\auth\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\data\\repository\\auth\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:data\\repository\\auth\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\categories\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\categories\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\users\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\users\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\models\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:models\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|c:\\users\\lenovo\\onedrive - universidad nacional de costa rica\\development web\\virtualcatalogapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7A765DC6-300B-4161-B9B7-3F1E49AFA89F}|VirtualCatalogAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Users\\IRoleRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\IRoleRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Users\\IRoleRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:27:39.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\RoleRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Users\\RoleRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\RoleRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Users\\RoleRepository.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowA4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:29:07.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Users\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\UserRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Users\\UserRepository.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowA0AAACRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T06:57:24.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "Businesses\\Auth\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Auth\\AuthService.cs",
+              "RelativeToolTip": "Businesses\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:24:38.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\RoleService.cs",
+              "RelativeDocumentMoniker": "Businesses\\Users\\RoleService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\RoleService.cs",
+              "RelativeToolTip": "Businesses\\Users\\RoleService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:21:46.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\UserService.cs",
+              "RelativeDocumentMoniker": "Businesses\\Users\\UserService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\UserService.cs",
+              "RelativeToolTip": "Businesses\\Users\\UserService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAqwDMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:15:17.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAASwFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T03:59:39.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Users\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Users\\IUserRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Users\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:38:59.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Users\\Role.cs",
+              "RelativeDocumentMoniker": "Models\\Users\\Role.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Users\\Role.cs",
+              "RelativeToolTip": "Models\\Users\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:40:09.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Auth\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Auth\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Auth\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\Auth\\AuthController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDgAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T03:00:02.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\IRoleService.cs",
+              "RelativeDocumentMoniker": "Businesses\\Users\\IRoleService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Businesses\\Users\\IRoleService.cs",
+              "RelativeToolTip": "Businesses\\Users\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:21:36.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Users\\RoleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Users\\RoleController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Users\\RoleController.cs",
+              "RelativeToolTip": "Controllers\\Users\\RoleController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T07:19:40.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Auth\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Auth\\AuthRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Auth\\AuthRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Auth\\AuthRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswBgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:17:51.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Products\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Products\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Products\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\Products\\ProductController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwIYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:08:02.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Users\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Users\\UserController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Users\\UserController.cs",
+              "RelativeToolTip": "Controllers\\Users\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:27:44.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Categories\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Categories\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Controllers\\Categories\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\Categories\\CategoryController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwEEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:08:24.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Auth\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "Models\\Auth\\RegisterRequest.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Auth\\RegisterRequest.cs",
+              "RelativeToolTip": "Models\\Auth\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:21:46.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Auth\\IAuthRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repository\\Auth\\IAuthRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Data\\Repository\\Auth\\IAuthRepository.cs",
+              "RelativeToolTip": "Data\\Repository\\Auth\\IAuthRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T06:01:44.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Products\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Products\\Product.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Products\\Product.cs",
+              "RelativeToolTip": "Models\\Products\\Product.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:58:46.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Categories\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Categories\\Category.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Categories\\Category.cs",
+              "RelativeToolTip": "Models\\Categories\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:58:44.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Auth\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Models\\Auth\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Auth\\LoginRequest.cs",
+              "RelativeToolTip": "Models\\Auth\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T04:34:14.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Users\\UserRole.cs",
+              "RelativeDocumentMoniker": "Models\\Users\\UserRole.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\Models\\Users\\UserRole.cs",
+              "RelativeToolTip": "Models\\Users\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:27:44.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-26T03:58:59.597Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
