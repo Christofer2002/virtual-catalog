@@ -74,7 +74,7 @@ The frontend will now be available at `http://localhost:7278`
 
 ---
 
-# Frontend (Virtual-Catalog)
+### Frontend (Virtual-Catalog)
 
 1. Navigate to the frontend directory
 cd ../Virtual-Catalog
