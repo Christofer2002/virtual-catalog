@@ -86,6 +86,25 @@ BEGIN
     VALUES ('Christofer', 'Chaves', 'user@example.com', '987654321', 'user123');
 END
 
+-- Insert additional Users
+IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'john.doe@example.com')
+BEGIN
+    INSERT INTO [User] (Name, LastName, Email, Identification, Password)
+    VALUES ('John', 'Doe', 'john.doe@example.com', '123123123', 'password123');
+END
+
+IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'jane.doe@example.com')
+BEGIN
+    INSERT INTO [User] (Name, LastName, Email, Identification, Password)
+    VALUES ('Jane', 'Doe', 'jane.doe@example.com', '321321321', 'password123');
+END
+
+IF NOT EXISTS (SELECT * FROM [User] WHERE Email = 'mike.smith@example.com')
+BEGIN
+    INSERT INTO [User] (Name, LastName, Email, Identification, Password)
+    VALUES ('Mike', 'Smith', 'mike.smith@example.com', '111222333', 'password123');
+END
+
 -- Assign Roles to Users
 IF NOT EXISTS (SELECT * FROM UserRole WHERE UserId = 1 AND RoleId = 1)
 BEGIN
@@ -95,6 +114,22 @@ END
 IF NOT EXISTS (SELECT * FROM UserRole WHERE UserId = 2 AND RoleId = 2)
 BEGIN
     INSERT INTO UserRole (UserId, RoleId) VALUES (2, 2); -- Regular User
+END
+
+-- Assign Roles to additional Users
+IF NOT EXISTS (SELECT * FROM UserRole WHERE UserId = 3 AND RoleId = 2)
+BEGIN
+    INSERT INTO UserRole (UserId, RoleId) VALUES (3, 2); -- Regular User
+END
+
+IF NOT EXISTS (SELECT * FROM UserRole WHERE UserId = 4 AND RoleId = 2)
+BEGIN
+    INSERT INTO UserRole (UserId, RoleId) VALUES (4, 2); -- Regular User
+END
+
+IF NOT EXISTS (SELECT * FROM UserRole WHERE UserId = 5 AND RoleId = 2)
+BEGIN
+    INSERT INTO UserRole (UserId, RoleId) VALUES (5, 2); -- Regular User
 END
 
 -- Assign Privileges to Roles
@@ -128,6 +163,22 @@ BEGIN
     INSERT INTO Category (Name) VALUES ('Books');
 END
 
+-- Insert additional Categories
+IF NOT EXISTS (SELECT * FROM Category WHERE Name = 'Furniture')
+BEGIN
+    INSERT INTO Category (Name) VALUES ('Furniture');
+END
+
+IF NOT EXISTS (SELECT * FROM Category WHERE Name = 'Clothing')
+BEGIN
+    INSERT INTO Category (Name) VALUES ('Clothing');
+END
+
+IF NOT EXISTS (SELECT * FROM Category WHERE Name = 'Toys')
+BEGIN
+    INSERT INTO Category (Name) VALUES ('Toys');
+END
+
 -- Insert initial Products
 IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Laptop')
 BEGIN
@@ -139,4 +190,61 @@ IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Book')
 BEGIN
     INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
     VALUES ('Book', 'Interesting novel', 19.99, 50, 2); -- Category: Books
+END
+
+-- Insert additional Products
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Smartphone')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Smartphone', 'Latest model smartphone', 799.99, 20, 
+        (SELECT Id FROM Category WHERE Name = 'Electronics'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Tablet')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Tablet', 'Portable tablet device', 499.99, 15, 
+        (SELECT Id FROM Category WHERE Name = 'Electronics'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Office Chair')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Office Chair', 'Ergonomic office chair', 149.99, 25, 
+        (SELECT Id FROM Category WHERE Name = 'Furniture'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Sofa')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Sofa', 'Comfortable living room sofa', 599.99, 5, 
+        (SELECT Id FROM Category WHERE Name = 'Furniture'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'T-Shirt')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('T-Shirt', 'Casual cotton T-shirt', 14.99, 100, 
+        (SELECT Id FROM Category WHERE Name = 'Clothing'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Jeans')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Jeans', 'Denim jeans', 39.99, 75, 
+        (SELECT Id FROM Category WHERE Name = 'Clothing'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Toy Car')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Toy Car', 'Miniature toy car', 9.99, 200, 
+        (SELECT Id FROM Category WHERE Name = 'Toys'));
+END
+
+IF NOT EXISTS (SELECT * FROM Product WHERE Name = 'Doll')
+BEGIN
+    INSERT INTO Product (Name, Description, Price, Stock, CategoryId)
+    VALUES ('Doll', 'Fashionable doll', 14.99, 150, 
+        (SELECT Id FROM Category WHERE Name = 'Toys'));
 END

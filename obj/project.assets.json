@@ -2048,11 +2048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\VirtualCatalogAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\VirtualCatalogAPI.csproj",
       "projectName": "VirtualCatalogAPI",
-      "projectPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\VirtualCatalogAPI.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\VirtualCatalogAPI.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\VirtualCatalogAPI\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\OneDrive - Universidad Nacional de Costa Rica\\Development Web\\virtual-catalog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

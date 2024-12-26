@@ -15,6 +15,8 @@ using VirtualCatalogAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+RunFlywayMigration();
+
 // Add services to the container
 builder.Services.AddControllers();
 
@@ -111,7 +113,7 @@ static void RunFlywayMigration()
     {
         StartInfo = new ProcessStartInfo
         {
-            FileName = "flyway",
+            FileName = "run-flyway.bat",
             Arguments = "migrate",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
