@@ -46,8 +46,8 @@ Make sure you have the following installed:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/your-username/virtual-catalog.git
-   cd virtual-catalog/VirtualCatalogAPI 
-```
+   cd virtual-catalog/VirtualCatalogAPI
+   ```
 
 2. Configure the database connection
 Open `appsettings.json` and update the connection string with your SQL Server credentials:
