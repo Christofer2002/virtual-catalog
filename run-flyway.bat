@@ -1,2 +1,3 @@
-﻿@echo off
+@echo off
+flyway repair
 flyway migrate

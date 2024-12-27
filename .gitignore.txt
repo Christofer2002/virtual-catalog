@@ -31,6 +31,7 @@ bld/
 # Visual Studio Code
 .vscode/
 .vscode/*
+.vs/
 
 # Rider project files
 .idea/
