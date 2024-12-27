@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_URL = 'https://localhost:7278/api/product/'; 
+import { PRODUCT_URL } from '../utils/API_URL';
 
 // Helper function to get the token from localStorage
 const getToken = () => {
@@ -10,7 +9,7 @@ const getToken = () => {
 
 export const getAllProductos = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(PRODUCT_URL);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data);
@@ -19,7 +18,7 @@ export const getAllProductos = async () => {
 
 export const getProductoById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}${id}`, {
+    const response = await axios.get(`${PRODUCT_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -32,7 +31,7 @@ export const getProductoById = async (id) => {
 
 export const createProducto = async (productoData) => {
   try {
-    const response = await axios.post(API_URL, productoData, {
+    const response = await axios.post(PRODUCT_URL, productoData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -45,7 +44,7 @@ export const createProducto = async (productoData) => {
 
 export const updateProducto = async (id, productoData) => {
   try {
-    const response = await axios.put(`${API_URL}${id}`, productoData, {
+    const response = await axios.put(`${PRODUCT_URL}${id}`, productoData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -58,7 +57,7 @@ export const updateProducto = async (id, productoData) => {
 
 export const deleteProducto = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}${id}`, {
+    const response = await axios.delete(`${PRODUCT_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -71,7 +70,7 @@ export const deleteProducto = async (id) => {
 
 export const getProductsByCategory = async (categoryId) => {
   try {
-    const response = await axios.get(`${API_URL}category/${categoryId}`);
+    const response = await axios.get(`${PRODUCT_URL}category/${categoryId}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data || "Error fetching products by category.");

@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 import { useParams, Link } from "react-router-dom";
 import { getProductsByCategory, deleteProducto, getAllProductos } from "../service/productApi";
 import CustomFooter from "../components/common/CustomFooter";
 import { getCategoriaById } from "../service/categoryApi";
+import ConfirmationModal from "../components/common/ConfirmationModal";
 
 export default function ProductPage() {
   const authData = JSON.parse(localStorage.getItem("auth"));
   const userRole = authData?.role; // User rol
+
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState({});
 
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
@@ -48,14 +55,28 @@ export default function ProductPage() {
     try {
       await deleteProducto(productId);
       setProducts(products.filter((product) => product.id !== productId));
+      toast.success("Product deleted successfully");
     } catch (error) {
       console.error("Error deleting product:", error.message);
-      setError("Failed to delete product. Please try again.");
+      toast.error("Failed to delete product. Please try again.");
     }
+  };
+
+  const openDeleteModal = (productId) => {
+    setModalData({
+      title: "Confirm Deletion",
+      message: "Are you sure you want to delete this product?",
+      onConfirm: () => {
+        handleDelete(productId);
+        setIsModalOpen(false);
+      },
+    });
+    setIsModalOpen(true);
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <ToastContainer />
       {
         categoryId !== undefined ? (
           <h1 className="text-3xl font-bold mb-6 text-blue-800">
@@ -69,9 +90,10 @@ export default function ProductPage() {
       {userRole === "Admin" && (
         <Link
           to="/products/create"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mb-6"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mb-6"
         >
-          Create Product
+          <FaPlus className="mr-2" />
+          <span>Create Product</span>
         </Link>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -94,17 +116,19 @@ export default function ProductPage() {
               {userRole === "Admin" && (
                 <Link
                   to={`/products/${product.id}/edit`}
-                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                 >
-                  Update
+                  <FaEdit className="mr-2" />
+                  <span>Update</span>
                 </Link>
               )}
               {userRole === "Admin" && (
                 <button
-                  onClick={() => handleDelete(product.id)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => openDeleteModal(product.id)}
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                 >
-                  Delete
+                  <FaTrash className="mr-2" /> 
+                  <span>Delete</span>
                 </button>
               )}
             </div>
@@ -114,6 +138,13 @@ export default function ProductPage() {
       <div className="w-full mt-10">
         <CustomFooter />
       </div>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        title={modalData.title}
+        message={modalData.message}
+        onConfirm={modalData.onConfirm}
+        onCancel={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

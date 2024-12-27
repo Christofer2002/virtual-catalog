@@ -31,7 +31,7 @@ bld/
 # Visual Studio Code
 .vscode/
 .vscode/*
-.vs/
+.vs/*
 
 # Rider project files
 .idea/
@@ -96,6 +96,7 @@ build/
 .vscode/launch.json
 .vscode/jsconfig.json
 .vscode/extensions.json
+.obj/*
 
 
 .vs/VirtualCatalogAPI/FileContentIndex/2e82b57e-72f2-42dd-af73-a348f9884c69.vsidx

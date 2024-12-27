@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Transactions;
 using VirtualCatalogAPI.Models.Users;
 
 namespace VirtualCatalogAPI.Data.Repository.Users
@@ -227,12 +228,17 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
+                using (var deleteUserRoleCommand = new SqlCommand("DELETE FROM UserRole WHERE UserId = @UserId", connection))
                 using (var command = new SqlCommand("DELETE FROM [User] WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
+                    deleteUserRoleCommand.Parameters.AddWithValue("@UserId", id);
 
                     await connection.OpenAsync();
+
+                    await deleteUserRoleCommand.ExecuteNonQueryAsync();
                     await command.ExecuteNonQueryAsync();
+
                 }
             }
             catch (SqlException ex)

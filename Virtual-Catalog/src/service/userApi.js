@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_URL = 'https://localhost:7278/api/user/';
+import { USER_URL } from '../utils/API_URL';
 
 // Helper function to get the token from localStorage
 const getToken = () => {
@@ -11,7 +10,7 @@ const getToken = () => {
 // Get all users
 export const getAllUsers = async () => {
   try {
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(USER_URL, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -25,7 +24,7 @@ export const getAllUsers = async () => {
 // Get a user by ID
 export const getUserById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}${id}`, {
+    const response = await axios.get(`${USER_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -39,7 +38,7 @@ export const getUserById = async (id) => {
 // Create a new user
 export const createUser = async (userData) => {
   try {
-    const response = await axios.post(API_URL, userData, {
+    const response = await axios.post(USER_URL, userData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -53,7 +52,7 @@ export const createUser = async (userData) => {
 // Update a user
 export const updateUser = async (id, userData) => {
   try {
-    const response = await axios.put(`${API_URL}${id}`, userData, {
+    const response = await axios.put(`${USER_URL}${id}`, userData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -67,7 +66,7 @@ export const updateUser = async (id, userData) => {
 // Delete a user
 export const deleteUser = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}${id}`, {
+    const response = await axios.delete(`${USER_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }

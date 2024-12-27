@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllCategorias } from "../../../service/categoryApi";
+import { ToastContainer, toast } from "react-toastify";
+import ConfirmationModal from "../../common/ConfirmationModal";
 
 const ProductForm = ({ initialProduct, onSubmit, isEdit }) => {
   const [product, setProduct] = useState(
@@ -13,6 +15,10 @@ const ProductForm = ({ initialProduct, onSubmit, isEdit }) => {
   );
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
+
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState({});
 
   useEffect(() => {
     fetchCategories();
@@ -75,13 +81,27 @@ const ProductForm = ({ initialProduct, onSubmit, isEdit }) => {
     return null;
   };
 
+  const openSubmitModal = (e) => {
+    e.preventDefault()
+    setModalData({
+      title: (isEdit ? "Confirm Updating" : "Confirm Creating"),
+      message: (isEdit ? "Are you sure you want to update this product?" : "Are you sure you want to create the product?"),
+      onConfirm: () => {
+        handleSubmit(e);
+        setIsModalOpen(false);
+      },
+    });
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
+      <ToastContainer />
       <h1 className="text-3xl font-bold mb-6 text-blue-800">
         {isEdit ? "Edit Product" : "Create Product"}
       </h1>
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={e => openSubmitModal(e)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Name
@@ -166,6 +186,13 @@ const ProductForm = ({ initialProduct, onSubmit, isEdit }) => {
           </button>
         </div>
       </form>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        title={modalData.title}
+        message={modalData.message}
+        onConfirm={modalData.onConfirm}
+        onCancel={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

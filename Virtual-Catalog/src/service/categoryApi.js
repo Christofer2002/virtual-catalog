@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const API_URL = "https://localhost:7278/api/category/";
+import { CATEGORY_URL } from "../utils/API_URL";
 
 // Helper function to get the token from localStorage
 const getToken = () => {
@@ -10,7 +9,7 @@ const getToken = () => {
 
 export const getAllCategorias = async () => {
   try {
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(CATEGORY_URL, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -23,7 +22,7 @@ export const getAllCategorias = async () => {
 
 export const getCategoriaById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}${id}`, {
+    const response = await axios.get(`${CATEGORY_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -36,7 +35,7 @@ export const getCategoriaById = async (id) => {
 
 export const createCategoria = async (categoriaData) => {
   try {
-    const response = await axios.post(API_URL, categoriaData, {
+    const response = await axios.post(CATEGORY_URL, categoriaData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -49,7 +48,7 @@ export const createCategoria = async (categoriaData) => {
 
 export const updateCategoria = async (id, categoriaData) => {
   try {
-    const response = await axios.put(`${API_URL}${id}`, categoriaData, {
+    const response = await axios.put(`${CATEGORY_URL}${id}`, categoriaData, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -62,7 +61,7 @@ export const updateCategoria = async (id, categoriaData) => {
 
 export const deleteCategoria = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}${id}`, {
+    const response = await axios.delete(`${CATEGORY_URL}${id}`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }

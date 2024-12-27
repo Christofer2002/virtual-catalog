@@ -31,11 +31,12 @@ export default function Home() {
             <FaClipboardList className="text-yellow-500 text-6xl mb-4" />
             <h2 className="text-2xl font-bold">Categories</h2>
             <p className="mt-2 text-gray-600">Explore a wide variety of product categories.</p>
-            <Link to="/categories" className="mt-4 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                See more
-              </span>
-            </Link>
+            <div className="flex justify-center w-full mt-4">
+              <Link to="/categories" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+                <FaClipboardList className="mr-2" />
+                <span>See more</span>
+              </Link>
+            </div>
           </Card>
 
           {/* Card 2 - Products */}
@@ -43,29 +44,31 @@ export default function Home() {
             <FaShoppingCart className="text-green-500 text-6xl mb-4" />
             <h2 className="text-2xl font-bold">Products</h2>
             <p className="mt-2 text-gray-600">Discover and manage all available products.</p>
-            <Link to="/products" className="mt-4 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                See more
-              </span>
-            </Link>
+            <div className="flex justify-center w-full mt-4">
+              <Link to="/products" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+                <FaShoppingCart className="mr-2" />
+                <span>See more</span>
+              </Link>
+            </div>
           </Card>
 
           {/* Card 3 - Clients */}
           {userRole === "Admin" && (
-          <Card className="flex flex-col items-center text-center">
-            <FaUser className="text-blue-500 text-6xl mb-4" />
-            <h2 className="text-2xl font-bold">Users</h2>
-            <p className="mt-2 text-gray-600">Access and manage all users in the system as admin.</p>
-            <Link to="/users" className="mt-4 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                See more
-              </span>
-            </Link>
-          </Card>
+            <Card className="flex flex-col items-center text-center">
+              <FaUser className="text-blue-500 text-6xl mb-4" />
+              <h2 className="text-2xl font-bold">Users</h2>
+              <p className="mt-2 text-gray-600">Access and manage all users in the system.</p>
+              <div className="flex justify-center w-full mt-4">
+                <Link to="/users" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+                  <FaUser className="mr-2" />
+                  <span>See more</span>
+                </Link>
+              </div>
+            </Card>
           )}
 
           {/* Card 4 - Orders */}
-{/*           {userRole === "Admin" && (
+          {/*           {userRole === "Admin" && (
           <Card className="flex flex-col items-center text-center">
             <FaClipboardList className="text-red-500 text-6xl mb-4" />
             <h2 className="text-2xl font-bold">Orders</h2>

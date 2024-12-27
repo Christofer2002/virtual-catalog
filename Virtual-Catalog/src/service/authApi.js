@@ -1,11 +1,10 @@
 import axios from 'axios';
-
-const API_URL = 'https://localhost:7278/api/auth/';
+import {AUTH_URL} from '../utils/API_URL';
 
 // Login function
 export const login = async (credentials) => {
   try {
-    const response = await axios.post(`${API_URL}login`, credentials);
+    const response = await axios.post(`${AUTH_URL}login`, credentials);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data || 'Error during login process');
@@ -15,7 +14,7 @@ export const login = async (credentials) => {
 // Register
 export const register = async (userData) => {
     try {
-      const response = await axios.post(`${API_URL}register`, userData);
+      const response = await axios.post(`${AUTH_URL}register`, userData);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data || "Error during registration");
@@ -25,7 +24,7 @@ export const register = async (userData) => {
 // Logout function
 export const logout = async () => {
   try {
-    const response = await axios.post(`${API_URL}logout`);
+    const response = await axios.post(`${AUTH_URL}logout`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data || 'Error during logout process');
@@ -35,7 +34,7 @@ export const logout = async () => {
 // Check session function
 export const checkSession = async () => {
   try {
-    const response = await axios.get(`${API_URL}session`);
+    const response = await axios.get(`${AUTH_URL}session`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data || 'Error checking session');
