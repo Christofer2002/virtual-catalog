@@ -89,6 +89,7 @@ node_modules/
 # Compiled source
 dist/
 build/
+obj/*
 
 # Ignore Visual Studio Code workspace settings
 .vscode/settings.json
