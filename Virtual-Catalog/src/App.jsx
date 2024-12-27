@@ -21,7 +21,7 @@ const App = () => {
           {/* <MainHeader /> */}
           <Header />
           <Routes>
-            <Route index path="/" element={<Home />} />
+            <Route index path="/virtual-catalog" element={<Home />} />
             <Route path="/categories" element={<CategoryPage />} />
             <Route path="/categories/create" element={<CategoryCreate />} />
             <Route path="/categories/:id/edit" element={<CategoryEdit />} />

@@ -31,13 +31,13 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link className="nav-link text-white" to="/">
+              <Link className="nav-link text-white" to="/virtual-catalog">
                 <GiAbstract065 className="text-white text-3xl" />
               </Link>
             </div>
             {/* Desktop Menu */}
             <div className="hidden md:flex ml-10 space-x-6">
-              <Link className="nav-link text-white font-extrabold" to="/">
+              <Link className="nav-link text-white font-extrabold" to="/virtual-catalog">
                 Inicio
               </Link>
               <Link className="nav-link text-white hover:text-gray-300" to="/categories">
@@ -93,7 +93,7 @@ const Header = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link
-                to="/"
+                to="/virtual-catalog"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Home
