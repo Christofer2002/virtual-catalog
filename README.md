@@ -94,7 +94,7 @@ npm install
 
 4. Set up environment variables
 ### Create a `.env` file in the frontend root with the following content:
-VITE_API_BASE_URL=https://localhost:5001/api
+VITE_API_BASE_URL=https://localhost:7278/api
 
 4. Run the development server
 ```bash
