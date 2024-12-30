@@ -118,5 +118,21 @@ namespace VirtualCatalogAPI.Businesses.Auth
                 return builder.ToString();
             }
         }
+
+        public async Task<AuthResponse> RequestPasswordReset(string email)
+        {
+            var user = await _authRepository.GetUserByEmailAsync(email);
+
+            var token = _jwtHelper.GenerateToken(user.Id.ToString(), user.RoleName, TimeSpan.FromMinutes(60));
+
+            return new AuthResponse
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                UserName = user.Name + " " + user.LastName,
+                Role = user.RoleName,
+                Token = token
+            };
+        }
     }
 }

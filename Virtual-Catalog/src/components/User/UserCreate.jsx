@@ -25,7 +25,7 @@ const UserCreate = () => {
   const handleSubmit = async (userData) => {
     try {
       await createUser(userData);
-      navigate('/users');
+      navigate('/virtual-catalog/users');
     } catch (err) {
       setError(err.message || 'Failed to create user.');
     }

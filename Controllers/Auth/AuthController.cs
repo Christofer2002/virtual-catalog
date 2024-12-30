@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using VirtualCatalogAPI.Businesses.Auth;
+using VirtualCatalogAPI.Businesses.Users;
+using VirtualCatalogAPI.Businesses.Email;
 using VirtualCatalogAPI.Models.Auth;
 
 namespace VirtualCatalogAPI.Controllers.Auth
@@ -11,10 +12,12 @@ namespace VirtualCatalogAPI.Controllers.Auth
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IEmailService _emailService;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IEmailService emailService)
         {
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
+            _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
         }
 
         /// <summary>
@@ -99,5 +102,38 @@ namespace VirtualCatalogAPI.Controllers.Auth
                 return StatusCode(500, "An error occurred while checking session.");
             }
         }
+
+        [AllowAnonymous]
+        [HttpPost("request-reset-password")]
+        public async Task<IActionResult> RequestPasswordReset([FromBody] string request)
+        {
+
+            AuthResponse user = await _authService.RequestPasswordReset(request);
+            if (user == null)
+            {
+                return BadRequest("User not found");
+            }
+
+            await _emailService.SendPasswordResetEmail(user.Email, user.Token);
+
+            return Ok("Password reset link sent");
+        }
+
+        /*[HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+        {
+            var isValidToken = _tokenService.ValidatePasswordResetToken(request.Token);
+            if (!isValidToken)
+            {
+                return BadRequest("Invalid or expired token");
+            }
+
+            // Actualiza la contraseña
+            await _userService.UpdatePassword(request.Email, request.NewPassword);
+
+            return Ok("Password reset successfully");
+        }*/
+
+
     }
 }

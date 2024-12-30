@@ -32,7 +32,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold">Categories</h2>
             <p className="mt-2 text-gray-600">Explore a wide variety of product categories.</p>
             <div className="flex justify-center w-full mt-4">
-              <Link to="/categories" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+              <Link to="/virtual-catalog/categories" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
                 <FaClipboardList className="mr-2" />
                 <span>See more</span>
               </Link>
@@ -45,7 +45,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold">Products</h2>
             <p className="mt-2 text-gray-600">Discover and manage all available products.</p>
             <div className="flex justify-center w-full mt-4">
-              <Link to="/products" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+              <Link to="/virtual-catalog/products" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
                 <FaShoppingCart className="mr-2" />
                 <span>See more</span>
               </Link>
@@ -59,7 +59,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold">Users</h2>
               <p className="mt-2 text-gray-600">Access and manage all users in the system.</p>
               <div className="flex justify-center w-full mt-4">
-                <Link to="/users" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
+                <Link to="/virtual-catalog/users" className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded inline-flex items-center hover:bg-blue-700">
                   <FaUser className="mr-2" />
                   <span>See more</span>
                 </Link>

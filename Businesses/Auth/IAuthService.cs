@@ -20,6 +20,8 @@ namespace VirtualCatalogAPI.Businesses.Auth
         /// <returns>The registered user.</returns>
         Task<User> RegisterAsync(RegisterRequest registerRequest);
 
+        Task<AuthResponse> RequestPasswordReset(string email);
+
         /// <summary>
         /// Logs out the current user by clearing the authentication token.
         /// </summary>

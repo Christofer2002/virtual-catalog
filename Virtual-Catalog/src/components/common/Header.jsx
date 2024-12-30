@@ -37,17 +37,17 @@ const Header = () => {
             </div>
             {/* Desktop Menu */}
             <div className="hidden md:flex ml-10 space-x-6">
-              <Link className="nav-link text-white font-extrabold" to="/virtual-catalog">
+              <Link className="nav-link text-white font-extrabold" to="/virtual-catalog/virtual-catalog">
                 Inicio
               </Link>
-              <Link className="nav-link text-white hover:text-gray-300" to="/categories">
+              <Link className="nav-link text-white hover:text-gray-300" to="/virtual-catalog/categories">
                 Categories
               </Link>
-              <Link className="nav-link text-white hover:text-gray-300" to="/products">
+              <Link className="nav-link text-white hover:text-gray-300" to="/virtual-catalog/products">
                 Products
               </Link>
               {authData?.role === "Admin" && (
-                <Link className="nav-link text-white hover:text-gray-300" to="/users">
+                <Link className="nav-link text-white hover:text-gray-300" to="/virtual-catalog/users">
                   Users
                 </Link>
               )}
@@ -66,7 +66,7 @@ const Header = () => {
                 </button>
               ) : (
                 <Link
-                  to="/AuthLayout"
+                  to="/virtual-catalog/authlayout"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center"
                 >
                   <FaUserCircle className="mr-2" />
@@ -99,20 +99,20 @@ const Header = () => {
                 Home
               </Link>
               <Link
-                to="/categories"
+                to="/virtual-catalog/categories"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Categories
               </Link>
               <Link
-                to="/products"
+                to="/virtual-catalog/products"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Products
               </Link>
               {authData?.role === "Admin" && (
                 <Link
-                  to="/users"
+                  to="/virtual-catalog/users"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Users
@@ -128,7 +128,7 @@ const Header = () => {
                 </button>
               ) : (
                 <Link
-                  to="/AuthLayout"
+                  to="/virtual-catalog/authlayout"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   <FaUserCircle className="mr-2" />

@@ -60,7 +60,7 @@ const CategoriaPage = () => {
       <h1 className="text-3xl font-bold mb-6 text-blue-800">Categorías</h1>
       {userRole === "Admin" && (
         <Link
-          to="/categories/create"
+          to="/virtual-catalog/categories/create"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mb-6"
         >
           <FaPlus className="mr-2" />
@@ -79,7 +79,7 @@ const CategoriaPage = () => {
             <p className="text-gray-600 mb-4">{category.description}</p>
             <div className="flex justify-between w-full">
               <Link
-                to={`/categories/${category.id}/products`}
+                to={`/virtual-catalog/categories/${category.id}/products`}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
               >
                 <FaBox className="mr-2" />
@@ -87,7 +87,7 @@ const CategoriaPage = () => {
               </Link>
               {userRole === "Admin" && (
                 <Link
-                  to={`/categories/${category.id}/edit`}
+                  to={`/virtual-catalog/categories/${category.id}/edit`}
                   className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                 >
                   <FaEdit className="mr-2" />

@@ -12,7 +12,8 @@ import ProductEdit from "./components/Producto/ProductEdit";
 import Home from "./pages/Home";
 
 import Header from "./components/common/Header";
-import AuthLayout from "./components/layouts/AuthLayout";
+import AuthLayout from "./components/layouts/Login/AuthLayout";
+import ResetPassword from "./components/layouts/Login/ResetPassword";
 
 const App = () => {
   return (
@@ -21,19 +22,20 @@ const App = () => {
           {/* <MainHeader /> */}
           <Header />
           <Routes>
-            <Route index path="/virtual-catalog" element={<Home />} />
-            <Route path="/categories" element={<CategoryPage />} />
-            <Route path="/categories/create" element={<CategoryCreate />} />
-            <Route path="/categories/:id/edit" element={<CategoryEdit />} />
-            <Route path="/users" element={<UserPage />} />
-            <Route path="/users/create" element={<UserCreate />} />
-            <Route path="/users/:id/edit" element={<UserEdit />} />
-            <Route path="/orders" element={<OrderPage />} />
-            <Route path="/products" element={<ProductPage />} />
-            <Route path="/categories/:categoryId/products" element={<ProductPage />} />
-            <Route path="/products/create" element={<ProductCreate />} />
-            <Route path="/products/:id/edit" element={<ProductEdit />} />
-            <Route path="/AuthLayout" element={<AuthLayout />} />
+            <Route index path="/virtual-catalog/" element={<Home />} />
+            <Route path="/virtual-catalog/categories" element={<CategoryPage />} />
+            <Route path="/virtual-catalog/categories/create" element={<CategoryCreate />} />
+            <Route path="/virtual-catalog/categories/:id/edit" element={<CategoryEdit />} />
+            <Route path="/virtual-catalog/users" element={<UserPage />} />
+            <Route path="/virtual-catalog/users/create" element={<UserCreate />} />
+            <Route path="/virtual-catalog/users/:id/edit" element={<UserEdit />} />
+            <Route path="/virtual-catalog/orders" element={<OrderPage />} />
+            <Route path="/virtual-catalog/products" element={<ProductPage />} />
+            <Route path="/virtual-catalog/categories/:categoryId/products" element={<ProductPage />} />
+            <Route path="/virtual-catalog/products/create" element={<ProductCreate />} />
+            <Route path="/virtual-catalog/products/:id/edit" element={<ProductEdit />} />
+            <Route path="/virtual-catalog/authlayout" element={<AuthLayout />} />
+            <Route path="/virtual-catalog/reset-password" element={<ResetPassword />} />
 
             {/* <Route
             path="/productoDetalles/:idproducto"

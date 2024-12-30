@@ -7,7 +7,7 @@ const ProductCreate = () => {
 
   const handleCreate = async (product) => {
     await createProducto(product);
-    navigate("/products");
+    navigate("/virtual-catalog/products");
   };
 
   return <ProductForm onSubmit={handleCreate} />;

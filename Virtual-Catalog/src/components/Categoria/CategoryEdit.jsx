@@ -22,7 +22,7 @@ const CategoryEdit = () => {
 
   const handleUpdate = async (category) => {
     await updateCategoria(id, category);
-    navigate("/categories");
+    navigate("/virtual-catalog/categories");
   };
 
   if (!initialCategory) return <p>Loading...</p>;

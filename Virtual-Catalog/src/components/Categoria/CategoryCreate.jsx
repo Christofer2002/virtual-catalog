@@ -7,7 +7,7 @@ const CategoryCreate = () => {
 
   const handleCreate = async (category) => {
     await createCategoria(category);
-    navigate("/categories");
+    navigate("/virtual-catalog/categories");
   };
 
   return <CategoryForm onSubmit={handleCreate} />;

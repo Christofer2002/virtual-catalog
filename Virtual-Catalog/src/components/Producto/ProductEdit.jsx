@@ -22,7 +22,7 @@ const ProductEdit = () => {
 
   const handleUpdate = async (product) => {
     await updateProducto(id, product);
-    navigate("/products");
+    navigate("/virtual-catalog/products");
   };
 
   if (!initialProduct) return <p>Loading...</p>;

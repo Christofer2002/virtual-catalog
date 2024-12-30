@@ -38,7 +38,7 @@ const UserEdit = () => {
   const handleSubmit = async (userData) => {
     try {
       await updateUser(id, userData);
-      navigate('/users');
+      navigate('/virtual-catalog/users');
     } catch (err) {
       setError(err.message || 'Failed to update user.');
     }

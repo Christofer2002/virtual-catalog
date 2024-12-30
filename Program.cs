@@ -12,6 +12,7 @@ using VirtualCatalogAPI.Data.Repository.Categories;
 using VirtualCatalogAPI.Data.Repository.Products;
 using VirtualCatalogAPI.Data.Repository.Users;
 using VirtualCatalogAPI.Data;
+using VirtualCatalogAPI.Businesses.Email;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +83,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddSingleton<DatabaseHelper>();
 

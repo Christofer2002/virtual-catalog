@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "VirtualCatalogAPI.Controllers.Auth.AuthController",
+    "Method": "RequestPasswordReset",
+    "RelativePath": "api/auth/request-reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VirtualCatalogAPI.Controllers.Auth.AuthController",
     "Method": "CheckSession",
     "RelativePath": "api/auth/session",
     "HttpMethod": "GET",

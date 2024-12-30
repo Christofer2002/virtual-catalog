@@ -40,3 +40,21 @@ export const checkSession = async () => {
     throw new Error(error.response?.data || 'Error checking session');
   }
 };
+
+export const requestResetPassword = async (email) => {
+  try {
+    const response = await axios.post(`${AUTH_URL}request-reset-password`, {email});
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || 'Error requesting password reset');
+  }
+}
+
+export const resetPassword = async (data) => {
+  try {
+    const response = await axios.post(`${AUTH_URL}reset-password`, data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || 'Error resetting password');
+  }
+}

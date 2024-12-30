@@ -1,17 +1,19 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaUserCircle, FaLock } from "react-icons/fa";
+import { FaUserCircle, FaLock, FaKey } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CustomFooter from "../common/CustomFooter";
-import { login, register } from "../../service/authApi";
-import { AuthContext } from "../../context/AuthContext";
+import CustomFooter from "../../common/CustomFooter";
+import { login, register, requestResetPassword } from "../../../service/authApi";
+import { AuthContext } from "../../../context/AuthContext";
 
 const AuthLayout = () => {
   const navigate = useNavigate();
   const { login: setAuthData } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -44,10 +46,8 @@ const AuthLayout = () => {
       lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value,
-      roleId : 2
+      roleId: 2,
     };
-
-    console.log("Registering new user:", newUser);
 
     try {
       const response = await register(newUser);
@@ -60,10 +60,25 @@ const AuthLayout = () => {
     }
   };
 
+  const handlePasswordReset = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await requestResetPassword({ email: resetEmail });
+      toast.success("Password reset link sent to your email");
+      setShowResetModal(false);
+      setResetEmail("");
+    } catch (error) {
+      toast.error("Error sending password reset link");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center justify-center">
       <ToastContainer />
-      <div className="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+      <div className="bg-white shadow-lg rounded-lg p-6 max-w-sm w-full">
         <div className="text-center">
           <div className="flex justify-center items-center mb-4">
             <FaUserCircle className="text-6xl text-blue-500" />
@@ -71,7 +86,7 @@ const AuthLayout = () => {
           <div className="flex justify-center items-center mb-4">
             <FaLock className="text-4xl text-gray-500" />
           </div>
-          <h2 className="text-3xl font-bold mb-4">Login</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-700">Login</h2>
         </div>
 
         <form onSubmit={handleLoginSubmit}>
@@ -80,7 +95,7 @@ const AuthLayout = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-blue-500"
@@ -103,8 +118,7 @@ const AuthLayout = () => {
           </div>
           <button
             type="submit"
-            className={`w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors ${loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+            className={`w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={loading}
           >
             {loading ? "Loading..." : "Login"}
@@ -112,8 +126,16 @@ const AuthLayout = () => {
         </form>
         <div className="text-center mt-4">
           <button
+            onClick={() => setShowResetModal(true)}
+            className="text-blue-500 underline hover:text-blue-700"
+          >
+            Forgot Password?
+          </button>
+        </div>
+        <div className="text-center mt-2">
+          <button
             onClick={() => setShowRegisterModal(true)}
-            className="text-blue-500 underline"
+            className="text-blue-500 underline hover:text-blue-700"
           >
             Register a new account
           </button>
@@ -124,6 +146,7 @@ const AuthLayout = () => {
         <CustomFooter />
       </div>
 
+      {/* Register Modal */}
       {showRegisterModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-md p-6 w-96">
@@ -204,6 +227,47 @@ const AuthLayout = () => {
                 <button
                   type="button"
                   onClick={() => setShowRegisterModal(false)}
+                  className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Reset Password Modal */}
+      {showResetModal && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-md p-6 w-96">
+            <h2 className="text-2xl font-bold mb-4">Reset Password</h2>
+            <form onSubmit={handlePasswordReset}>
+              <div className="mb-4">
+                <label htmlFor="resetEmail" className="block text-gray-700 font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="resetEmail"
+                  name="resetEmail"
+                  value={resetEmail}
+                  onChange={(e) => setResetEmail(e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-blue-500"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div className="flex justify-between">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  Send Reset Link
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowResetModal(false)}
                   className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors"
                 >
                   Cancel
