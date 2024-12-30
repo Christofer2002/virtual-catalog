@@ -1,62 +1,71 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using VirtualCatalogAPI.Helpers;
-using VirtualCatalogAPI.Businesses.Auth;
-using VirtualCatalogAPI.Data.Repository.Auth;
+using VirtualCatalogAPI.Businesses.Email;
+using VirtualCatalogAPI.Models.Email;
 using System.Diagnostics;
+using VirtualCatalogAPI.Businesses.Auth;
 using VirtualCatalogAPI.Businesses.Categories;
 using VirtualCatalogAPI.Businesses.Products;
 using VirtualCatalogAPI.Businesses.Users;
+using VirtualCatalogAPI.Data.Repository.Auth;
 using VirtualCatalogAPI.Data.Repository.Categories;
 using VirtualCatalogAPI.Data.Repository.Products;
 using VirtualCatalogAPI.Data.Repository.Users;
 using VirtualCatalogAPI.Data;
-using VirtualCatalogAPI.Businesses.Email;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
-RunFlywayMigration();
-
 // Add services to the container
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// Register ProductService and dependencies
+// Load environment variables
+builder.Configuration.AddEnvironmentVariables();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
+Env.Load();
+
+builder.Services.Configure<EmailSettings>(options =>
+{
+    options.SmtpHost = Environment.GetEnvironmentVariable("SMTP_HOST");
+    options.SmtpPort = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT") ?? "587");
+    options.SmtpUser = Environment.GetEnvironmentVariable("SMTP_USER");
+    options.SmtpPassword = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
+    options.FromEmail = Environment.GetEnvironmentVariable("FROM_EMAIL");
+});
+
+// Register services
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-// Register CategoryService and dependencies
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
-// Register UserService and dependencies
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-// Register IHttpContextAccessor
-builder.Services.AddHttpContextAccessor();
-
-// Register AuthService and dependencies
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-// Register RoleService and dependencies
-builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddSingleton<DatabaseHelper>();
 
+builder.Services.AddHttpContextAccessor();
 
-// Register JwtHelper
+// Configure JWT
 builder.Services.AddSingleton<JwtHelper>(sp =>
 {
     var configuration = sp.GetRequiredService<IConfiguration>();
     return new JwtHelper(
-        configuration["Jwt:Key"],
-        configuration["Jwt:Issuer"],
-        configuration["Jwt:Audience"]
+        configuration["Jwt:Key"]!,
+        configuration["Jwt:Issuer"]!,
+        configuration["Jwt:Audience"]!
     );
 });
 
-// Configure JWT Authentication
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
@@ -72,7 +81,6 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
-
 // Add CORS
 builder.Services.AddCors(options =>
 {
@@ -84,53 +92,53 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddScoped<IEmailService, EmailService>();
-
-builder.Services.AddSingleton<DatabaseHelper>();
-
-builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen();
+// Run Flyway migration
+RunFlywayMigration();
 
 var app = builder.Build();
 
-// Allow CORS
+// Configure middleware
 app.UseCors("AllowReactApp");
-
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
-
-// Add Authentication middleware
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
 
 static void RunFlywayMigration()
 {
-    var process = new Process
+    try
     {
-        StartInfo = new ProcessStartInfo
+        var process = new Process
         {
-            FileName = "run-flyway.bat",
-            Arguments = "migrate",
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "run-flyway.bat",
+                Arguments = "migrate",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            }
+        };
+
+        process.Start();
+        process.WaitForExit();
+
+        if (process.ExitCode != 0)
+        {
+            var error = process.StandardError.ReadToEnd();
+            Console.WriteLine($"Flyway migration failed: {error}");
         }
-    };
-
-    process.Start();
-    process.WaitForExit();
-
-    if (process.ExitCode != 0)
+        else
+        {
+            Console.WriteLine("Flyway migration completed successfully.");
+        }
+    }
+    catch (Exception ex)
     {
-        var error = process.StandardError.ReadToEnd();
-        throw new Exception($"Flyway migration failed: {error}");
+        Console.WriteLine($"An error occurred during Flyway migration: {ex.Message}");
     }
 }

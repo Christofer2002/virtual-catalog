@@ -50,7 +50,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": true
       }

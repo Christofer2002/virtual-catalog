@@ -145,3 +145,5 @@ C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\vi
 C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\virtual-catalog\obj\Debug\net8.0\VirtualCatalogAPI.pdb
 C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\virtual-catalog\obj\Debug\net8.0\VirtualCatalogAPI.genruntimeconfig.cache
 C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\virtual-catalog\obj\Debug\net8.0\ref\VirtualCatalogAPI.dll
+C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\virtual-catalog\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Lenovo\OneDrive - Universidad Nacional de Costa Rica\Development Web\virtual-catalog\bin\Debug\net8.0\Sprache.dll

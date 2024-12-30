@@ -64,7 +64,7 @@ const AuthLayout = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await requestResetPassword({ email: resetEmail });
+      await requestResetPassword( resetEmail );
       toast.success("Password reset link sent to your email");
       setShowResetModal(false);
       setResetEmail("");

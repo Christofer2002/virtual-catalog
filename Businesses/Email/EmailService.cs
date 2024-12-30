@@ -1,24 +1,18 @@
-﻿using System.Net;
+﻿using Microsoft.Extensions.Options;
+using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using VirtualCatalogAPI.Models.Email;
 
 namespace VirtualCatalogAPI.Businesses.Email
 {
     public class EmailService : IEmailService
     {
-        private readonly string _smtpHost;
-        private readonly int _smtpPort;
-        private readonly string _smtpUser;
-        private readonly string _smtpPassword;
-        private readonly string _fromEmail;
+        private readonly EmailSettings _emailSettings;
 
-        public EmailService(IConfiguration configuration)
+        public EmailService(IOptions<EmailSettings> emailSettings)
         {
-            _smtpHost = configuration["EmailSettings:SmtpHost"];
-            _smtpPort = int.Parse(configuration["EmailSettings:SmtpPort"]);
-            _smtpUser = configuration["EmailSettings:SmtpUser"];
-            _smtpPassword = configuration["EmailSettings:SmtpPassword"];
-            _fromEmail = configuration["EmailSettings:FromEmail"];
+            _emailSettings = emailSettings.Value;
         }
 
         public async Task SendPasswordResetEmail(string email, string token)
@@ -104,31 +98,35 @@ namespace VirtualCatalogAPI.Businesses.Email
         </div>
     </body>
     </html>";
-
-            using (var client = new SmtpClient(_smtpHost, _smtpPort))
+            try
             {
-                client.Credentials = new NetworkCredential(_smtpUser, _smtpPassword);
-                client.EnableSsl = true;
 
-                var mailMessage = new MailMessage
+                using (var client = new SmtpClient(_emailSettings.SmtpHost, _emailSettings.SmtpPort))
                 {
-                    From = new MailAddress(_fromEmail),
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true,
-                };
+                    client.Credentials = new NetworkCredential(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
+                    client.EnableSsl = true;
 
-                mailMessage.To.Add(email);
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress(_emailSettings.FromEmail),
+                        Subject = subject,
+                        Body = body,
+                        IsBodyHtml = true,
+                    };
 
-                try
-                {
+                    mailMessage.To.Add(email);
+
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
+
+
                     await client.SendMailAsync(mailMessage);
                 }
-                catch (SmtpException ex)
-                {
-                    throw new Exception("Failed to send email.", ex);
                 }
+                catch (Exception ex)
+            {
+                Console.WriteLine($"Error al enviar correo: {ex.Message}");
             }
         }
+        
     }
 }

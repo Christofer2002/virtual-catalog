@@ -105,10 +105,10 @@ namespace VirtualCatalogAPI.Controllers.Auth
 
         [AllowAnonymous]
         [HttpPost("request-reset-password")]
-        public async Task<IActionResult> RequestPasswordReset([FromBody] string request)
+        public async Task<IActionResult> RequestPasswordReset([FromBody] string email)
         {
 
-            AuthResponse user = await _authService.RequestPasswordReset(request);
+            AuthResponse user = await _authService.RequestPasswordReset(email);
             if (user == null)
             {
                 return BadRequest("User not found");

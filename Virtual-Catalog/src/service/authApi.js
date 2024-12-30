@@ -42,8 +42,13 @@ export const checkSession = async () => {
 };
 
 export const requestResetPassword = async (email) => {
+  console.log(email);
   try {
-    const response = await axios.post(`${AUTH_URL}request-reset-password`, {email});
+    const response = await axios.post(`${AUTH_URL}request-reset-password`, email, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data || 'Error requesting password reset');
