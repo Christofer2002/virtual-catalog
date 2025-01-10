@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Security;
 using System.Threading.Tasks;
 using VirtualCatalogAPI.Models.Email;
 
@@ -100,11 +101,12 @@ namespace VirtualCatalogAPI.Businesses.Email
     </html>";
             try
             {
-
+                Console.WriteLine("Creating SmtpClient...");
                 using (var client = new SmtpClient(_emailSettings.SmtpHost, _emailSettings.SmtpPort))
                 {
+                    Console.WriteLine("Configuring SmtpClient...");
                     client.Credentials = new NetworkCredential(_emailSettings.SmtpUser, _emailSettings.SmtpPassword);
-                    client.EnableSsl = true;
+                    client.EnableSsl = false;
 
                     var mailMessage = new MailMessage
                     {
@@ -114,17 +116,40 @@ namespace VirtualCatalogAPI.Businesses.Email
                         IsBodyHtml = true,
                     };
 
+                    // Opcional: habilitar logs detallados
+                    System.Net.Mail.SmtpClient smtpClient = client as System.Net.Mail.SmtpClient;
+                    smtpClient.ServicePoint.MaxIdleTime = 1;
+                    smtpClient.ServicePoint.ConnectionLimit = 1;
+
+                    // Forzar seguridad SSL
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
+                    ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+
+                
                     mailMessage.To.Add(email);
 
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
 
+                    /*                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
 
+                                        // Validar certificados SSL en el cliente
+                                        ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+                                        {
+                                            // Acepta certificados válidos
+                                            return sslPolicyErrors == SslPolicyErrors.None;
+                                        };*/
+
+                    Console.WriteLine("Sending email...");
                     await client.SendMailAsync(mailMessage);
+                    Console.WriteLine("Email sent successfully.");
                 }
                 }
-                catch (Exception ex)
+            catch (SmtpException smtpEx)
             {
-                Console.WriteLine($"Error al enviar correo: {ex.Message}");
+                Console.WriteLine($"SMTP Error: {smtpEx.StatusCode} - {smtpEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Error: {ex.Message}");
             }
         }
         

@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+﻿using Npgsql;
 using VirtualCatalogAPI.Models.Users;
 
 namespace VirtualCatalogAPI.Data.Repository.Users
@@ -19,8 +18,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand("SELECT * FROM Privilege", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand("SELECT * FROM Privilege", connection))
                 {
                     connection.Open();
 
@@ -37,10 +36,10 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                // Log SQL-specific errors
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                // Log PostgreSQL-specific errors
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while retrieving privileges from the database.", ex);
             }
             catch (Exception ex)
@@ -59,8 +58,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand("INSERT INTO Privilege (Name) VALUES (@Name)", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand("INSERT INTO Privilege (Name) VALUES (@Name)", connection))
                 {
                     // Validate required fields
                     if (string.IsNullOrWhiteSpace(privilege.Name))
@@ -73,10 +72,10 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     command.ExecuteNonQuery();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                // Log SQL-specific errors
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                // Log PostgreSQL-specific errors
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while adding the privilege to the database.", ex);
             }
             catch (ArgumentException ex)

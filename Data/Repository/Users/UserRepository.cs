@@ -1,7 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Transactions;
+﻿using Npgsql;
 using VirtualCatalogAPI.Models.Users;
 
 namespace VirtualCatalogAPI.Data.Repository.Users
@@ -21,8 +18,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(@"
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(@"
                     SELECT u.Id, u.Name, u.LastName, u.Email, u.Identification, u.Password,
                            r.Name AS RoleName
                     FROM [User] u
@@ -69,9 +66,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while retrieving users from the database.", ex);
             }
 
@@ -93,8 +90,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     await connection.OpenAsync();
@@ -117,9 +114,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while retrieving the user by ID from the database.", ex);
             }
 
@@ -133,8 +130,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand("SELECT * FROM [User] WHERE Identification = @Identification", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand("SELECT * FROM [User] WHERE Identification = @Identification", connection))
                 {
                     command.Parameters.AddWithValue("@Identification", identification.Trim());
                     await connection.OpenAsync();
@@ -156,9 +153,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while retrieving the user by identification from the database.", ex);
             }
 
@@ -172,8 +169,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand("INSERT INTO [User] (Name, LastName, Email, Identification, Password) VALUES (@Name, @LastName, @Email, @Identification, @Password)", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand("INSERT INTO [User] (Name, LastName, Email, Identification, Password) VALUES (@Name, @LastName, @Email, @Identification, @Password)", connection))
                 {
                     command.Parameters.AddWithValue("@Name", user.Name.Trim());
                     command.Parameters.AddWithValue("@LastName", user.LastName.Trim());
@@ -185,9 +182,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     await command.ExecuteNonQueryAsync();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while adding the user to the database.", ex);
             }
         }
@@ -199,8 +196,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand("UPDATE [User] SET Name = @Name, LastName = @LastName, Email = @Email, Identification = @Identification, Password = @Password WHERE Id = @Id", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand("UPDATE [User] SET Name = @Name, LastName = @LastName, Email = @Email, Identification = @Identification, Password = @Password WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", user.Id);
                     command.Parameters.AddWithValue("@Name", user.Name.Trim());
@@ -213,9 +210,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     await command.ExecuteNonQueryAsync();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while updating the user in the database.", ex);
             }
         }
@@ -227,9 +224,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var deleteUserRoleCommand = new SqlCommand("DELETE FROM UserRole WHERE UserId = @UserId", connection))
-                using (var command = new SqlCommand("DELETE FROM [User] WHERE Id = @Id", connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var deleteUserRoleCommand = new NpgsqlCommand("DELETE FROM UserRole WHERE UserId = @UserId", connection))
+                using (var command = new NpgsqlCommand("DELETE FROM [User] WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     deleteUserRoleCommand.Parameters.AddWithValue("@UserId", id);
@@ -241,9 +238,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while deleting the user from the database.", ex);
             }
         }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Npgsql;
 using VirtualCatalogAPI.Models.Users;
 
 namespace VirtualCatalogAPI.Data.Repository.Users
@@ -22,8 +19,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     await connection.OpenAsync();
 
@@ -40,9 +37,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error in RoleRepository.GetAllRolesAsync: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in RoleRepository.GetAllRolesAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving roles from the database.", ex);
             }
 
@@ -58,8 +55,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     await connection.OpenAsync();
@@ -77,9 +74,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error in RoleRepository.GetRoleByIdAsync: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in RoleRepository.GetRoleByIdAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving the role by ID from the database.", ex);
             }
 
@@ -98,8 +95,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", role.Name);
                     await connection.OpenAsync();
@@ -107,9 +104,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     return (long)await command.ExecuteScalarAsync();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error in RoleRepository.CreateRoleAsync: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in RoleRepository.CreateRoleAsync: {ex.Message}");
                 throw new Exception("An error occurred while creating the role in the database.", ex);
             }
         }
@@ -123,8 +120,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", role.Name);
                     command.Parameters.AddWithValue("@Id", role.Id);
@@ -133,9 +130,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     await command.ExecuteNonQueryAsync();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error in RoleRepository.UpdateRoleAsync: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in RoleRepository.UpdateRoleAsync: {ex.Message}");
                 throw new Exception("An error occurred while updating the role in the database.", ex);
             }
         }
@@ -149,8 +146,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
-                using (var command = new SqlCommand(query, connection))
+                using (var connection = new NpgsqlConnection(_connectionString))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     await connection.OpenAsync();
@@ -158,9 +155,9 @@ namespace VirtualCatalogAPI.Data.Repository.Users
                     await command.ExecuteNonQueryAsync();
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error in RoleRepository.DeleteRoleAsync: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in RoleRepository.DeleteRoleAsync: {ex.Message}");
                 throw new Exception("An error occurred while deleting the role from the database.", ex);
             }
         }

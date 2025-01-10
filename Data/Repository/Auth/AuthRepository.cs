@@ -1,6 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Npgsql;
 using VirtualCatalogAPI.Models.Users;
-using VirtualCatalogAPI.Models.Auth;
 using Dapper;
 
 namespace VirtualCatalogAPI.Data.Repository.Auth
@@ -27,7 +26,7 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new NpgsqlConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -39,9 +38,9 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
                     return user;
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while fetching the user from the database.", ex);
             }
             catch (Exception ex)
@@ -65,7 +64,7 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new NpgsqlConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -82,9 +81,9 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
                     await connection.ExecuteAsync(insertUserRoleQuery, userRoleParams);
                 }
             }
-            catch (SqlException ex)
+            catch (NpgsqlException ex)
             {
-                Console.WriteLine($"SQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while registering the user in the database.", ex);
             }
             catch (Exception ex)

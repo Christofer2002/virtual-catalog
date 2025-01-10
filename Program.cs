@@ -12,7 +12,7 @@ using VirtualCatalogAPI.Data.Repository.Auth;
 using VirtualCatalogAPI.Data.Repository.Categories;
 using VirtualCatalogAPI.Data.Repository.Products;
 using VirtualCatalogAPI.Data.Repository.Users;
-using VirtualCatalogAPI.Data;
+using VirtualCatalogAPI.Data.Connection;
 using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);

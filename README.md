@@ -19,7 +19,7 @@
 
 ### Backend
 - ASP.NET Core
-- Microsoft SQL Server
+- Microsoft PostgreSQL Server
 - Flyway (for database migrations)
 - Entity Framework Core
 
@@ -36,7 +36,7 @@ Make sure you have the following installed:
 
 - [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
 - [Node.js 18+](https://nodejs.org/) and npm (bundled with Node.js)
-- [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+- [Microsoft PostgreSQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 - [Flyway CLI](https://flywaydb.org/getstarted)
 
 ---
@@ -50,7 +50,7 @@ Make sure you have the following installed:
    ```
 
 2. Configure the database connection
-Open `appsettings.json` and update the connection string with your SQL Server credentials:
+Open `appsettings.json` and update the connection string with your PostgreSQL Server credentials:
 "ConnectionStrings": {
   "DefaultConnection": "Server=YOUR_SERVER;Database=VirtualCatalogDB;User Id=YOUR_USER;Password=YOUR_PASSWORD;TrustServerCertificate=true;"
 }

@@ -1,50 +1,47 @@
 ﻿using System.Data;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+using Npgsql;
 
-namespace VirtualCatalogAPI.Data
+namespace VirtualCatalogAPI.Data.Connection;
+public class DatabaseHelper
 {
-    public class DatabaseHelper
+    private readonly string _connectionString;
+
+    public DatabaseHelper(IConfiguration configuration)
     {
-        private readonly string _connectionString;
+        _connectionString = configuration.GetConnectionString("DefaultConnection");
+    }
 
-        public DatabaseHelper(IConfiguration configuration)
+    public DataTable ExecuteQuery(string query, NpgsqlParameter[] parameters = null)
+    {
+        using (var connection = new NpgsqlConnection(_connectionString))
+        using (var command = new NpgsqlCommand(query, connection))
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-        }
-
-        public DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand(query, connection))
+            if (parameters != null)
             {
-                if (parameters != null)
-                {
-                    command.Parameters.AddRange(parameters);
-                }
-
-                var dataTable = new DataTable();
-                var adapter = new SqlDataAdapter(command);
-
-                connection.Open();
-                adapter.Fill(dataTable);
-                return dataTable;
+                command.Parameters.AddRange(parameters);
             }
+
+            var dataTable = new DataTable();
+            var adapter = new NpgsqlDataAdapter(command);
+
+            connection.Open();
+            adapter.Fill(dataTable);
+            return dataTable;
         }
+    }
 
-        public int ExecuteNonQuery(string query, SqlParameter[] parameters = null)
+    public int ExecuteNonQuery(string query, NpgsqlParameter[] parameters = null)
+    {
+        using (var connection = new NpgsqlConnection(_connectionString))
+        using (var command = new NpgsqlCommand(query, connection))
         {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand(query, connection))
+            if (parameters != null)
             {
-                if (parameters != null)
-                {
-                    command.Parameters.AddRange(parameters);
-                }
-
-                connection.Open();
-                return command.ExecuteNonQuery();
+                command.Parameters.AddRange(parameters);
             }
+
+            connection.Open();
+            return command.ExecuteNonQuery();
         }
     }
 }
