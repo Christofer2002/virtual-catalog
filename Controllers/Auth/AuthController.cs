@@ -8,7 +8,7 @@ using VirtualCatalogAPI.Models.Auth;
 namespace VirtualCatalogAPI.Controllers.Auth
 {
     [ApiController]
-    [Route("auth")]
+    [Route("api/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;

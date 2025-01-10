@@ -6,7 +6,7 @@ using VirtualCatalogAPI.Models.Categories;
 namespace VirtualCatalogAPI.Controllers
 {
     [ApiController]
-    [Route("category")]
+    [Route("api/category")]
     [Authorize]
     public class CategoryController : ControllerBase
     {

@@ -8,7 +8,7 @@ using VirtualCatalogAPI.Businesses.Users;
 namespace VirtualCatalogAPI.Controllers.Users
 {
     [ApiController]
-    [Route("role")]
+    [Route("api/role")]
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _roleService;
