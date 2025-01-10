@@ -8,7 +8,7 @@ using VirtualCatalogAPI.Models.Users;
 namespace VirtualCatalogAPI.Controllers.Users
 {
     [ApiController]
-    [Route("api/user")]
+    [Route("user")]
     [Authorize]
     public class UserController : ControllerBase
     {

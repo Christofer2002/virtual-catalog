@@ -6,7 +6,7 @@ using VirtualCatalogAPI.Models.Products;
 namespace VirtualCatalogAPI.Controllers.Products
 {
     [ApiController]
-    [Route("api/product")]
+    [Route("product")]
     [Authorize]
     public class ProductController : ControllerBase
     {
