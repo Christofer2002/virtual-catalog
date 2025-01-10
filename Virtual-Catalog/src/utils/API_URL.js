@@ -1,4 +1,4 @@
-const API_URL_VPS = 'https://www.devbychris.com/virtual-catalog/api/';
+const API_URL_VPS = 'https://www.devbychris.com/virtual-catalog/';
 
 const API_URL_DEV = 'http://localhost:7278/';
 
