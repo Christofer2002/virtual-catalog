@@ -93,7 +93,7 @@ builder.Services.AddCors(options =>
 });
 
 // Run Flyway migration
-RunFlywayMigration();
+//RunFlywayMigration();
 
 var app = builder.Build();
 
