@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using System.Xml.Linq;
 using VirtualCatalogAPI.Models.Users;
 
 namespace VirtualCatalogAPI.Data.Repository.Users
@@ -15,7 +16,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
         public async Task<List<Role>> GetAllRolesAsync()
         {
             var roles = new List<Role>();
-            const string query = "SELECT * FROM [Role]";
+            const string query = "SELECT * FROM \"Role\"";
 
             try
             {
@@ -51,7 +52,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             if (id <= 0)
                 throw new ArgumentException("Id must be greater than zero.", nameof(id));
 
-            const string query = "SELECT * FROM [Role] WHERE Id = @Id";
+            const string query = "SELECT * FROM \"Role\" WHERE \"Id\" = @Id";
 
             try
             {
@@ -88,15 +89,10 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             if (role == null || string.IsNullOrWhiteSpace(role.Name))
                 throw new ArgumentException("Role name cannot be null or empty.", nameof(role));
 
-            const string query = @"
-                INSERT INTO [Role] (Name)
-                VALUES (@Name);
-                SELECT CAST(SCOPE_IDENTITY() as bigint);";
-
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand(query, connection))
+                using (var command = new NpgsqlCommand("INSERT INTO \"Role\" (\"Name\") VALUES(@Name) RETURNING \"Id\";", connection))
                 {
                     command.Parameters.AddWithValue("@Name", role.Name);
                     await connection.OpenAsync();
@@ -116,7 +112,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             if (role == null || string.IsNullOrWhiteSpace(role.Name) || role.Id <= 0)
                 throw new ArgumentException("Invalid role data.", nameof(role));
 
-            const string query = "UPDATE [Role] SET Name = @Name WHERE Id = @Id";
+            const string query = "UPDATE \"Role\" SET \"Name\" = @Name WHERE \"Id\" = @Id";
 
             try
             {
@@ -142,7 +138,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             if (id <= 0)
                 throw new ArgumentException("Id must be greater than zero.", nameof(id));
 
-            const string query = "DELETE FROM [Role] WHERE Id = @Id";
+            const string query = "DELETE FROM \"Role\" WHERE \"Id\" = @Id";
 
             try
             {

@@ -17,11 +17,12 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
         public async Task<List<Category>> GetAllAsync()
         {
             var categories = new List<Category>();
+            const string query = "SELECT * FROM \"Category\"";
 
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM Category", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     await connection.OpenAsync();
 
@@ -40,7 +41,7 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in GetAllAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving categories from the database.", ex);
             }
 
@@ -51,10 +52,12 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
         {
             if (id <= 0) throw new ArgumentException("Category ID must be greater than zero.", nameof(id));
 
+            const string query = "SELECT * FROM \"Category\" WHERE \"Id\" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM Category WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     await connection.OpenAsync();
@@ -74,7 +77,7 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in GetByIdAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving the category by ID from the database.", ex);
             }
 
@@ -85,10 +88,12 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
         {
             if (category == null) throw new ArgumentNullException(nameof(category));
 
+            const string query = "INSERT INTO \"Category\" (\"Name\") VALUES (@Name)";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("INSERT INTO Category (Name) VALUES (@Name)", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     if (string.IsNullOrWhiteSpace(category.Name))
                         throw new ArgumentException("Category Name is required.", nameof(category.Name));
@@ -101,7 +106,7 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in AddAsync: {ex.Message}");
                 throw new Exception("An error occurred while adding the category to the database.", ex);
             }
         }
@@ -110,10 +115,12 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
         {
             if (category == null) throw new ArgumentNullException(nameof(category));
 
+            const string query = "UPDATE \"Category\" SET \"Name\" = @Name WHERE \"Id\" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("UPDATE Category SET Name = @Name WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     if (string.IsNullOrWhiteSpace(category.Name))
                         throw new ArgumentException("Category Name is required.", nameof(category.Name));
@@ -130,7 +137,7 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in UpdateAsync: {ex.Message}");
                 throw new Exception("An error occurred while updating the category in the database.", ex);
             }
         }
@@ -139,10 +146,12 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
         {
             if (id <= 0) throw new ArgumentException("Category ID must be greater than zero.", nameof(id));
 
+            const string query = "DELETE FROM \"Category\" WHERE \"Id\" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("DELETE FROM Category WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -152,7 +161,7 @@ namespace VirtualCatalogAPI.Data.Repository.Categories
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in DeleteAsync: {ex.Message}");
                 throw new Exception("An error occurred while deleting the category from the database.", ex);
             }
         }

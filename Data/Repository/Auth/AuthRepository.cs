@@ -17,12 +17,12 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
         public async Task<User> GetUserByEmailAsync(string email)
         {
             const string query = @"
-        SELECT u.Id, u.Name, u.LastName, u.Email, u.Identification, u.Password, 
-               r.Name AS RoleName
-        FROM [User] u
-        LEFT JOIN [UserRole] ur ON u.Id = ur.UserId
-        LEFT JOIN [Role] r ON ur.RoleId = r.Id
-        WHERE u.Email = @Email";
+            SELECT u.""Id"", u.""Name"", u.""LastName"", u.""Email"", u.""Identification"", u.""Password"", 
+                   r.""Name"" AS RoleName
+            FROM ""User"" u
+            LEFT JOIN ""UserRole"" ur ON u.""Id"" = ur.""UserId""
+            LEFT JOIN ""Role"" r ON ur.""RoleId"" = r.""Id""
+            WHERE u.""Email"" = @Email";
 
             try
             {
@@ -50,17 +50,16 @@ namespace VirtualCatalogAPI.Data.Repository.Auth
             }
         }
 
-
         public async Task CreateUserAsync(User user, int roleId)
         {
             const string insertUserQuery = @"
-        INSERT INTO [User] (Name, LastName, Email, Identification, Password)
-        VALUES (@Name, @LastName, @Email, @Identification, @Password);
-        SELECT CAST(SCOPE_IDENTITY() as bigint);";
+            INSERT INTO ""User"" (""Name"", ""LastName"", ""Email"", ""Identification"", ""Password"")
+            VALUES (@Name, @LastName, @Email, @Identification, @Password)
+            RETURNING ""Id"";";
 
             const string insertUserRoleQuery = @"
-        INSERT INTO [UserRole] (UserId, RoleId)
-        VALUES (@UserId, @RoleId);";
+            INSERT INTO ""UserRole"" (""UserId"", ""RoleId"")
+            VALUES (@UserId, @RoleId);";
 
             try
             {

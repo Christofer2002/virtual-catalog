@@ -20,11 +20,11 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
                 using (var command = new NpgsqlCommand(@"
-                    SELECT u.Id, u.Name, u.LastName, u.Email, u.Identification, u.Password,
-                           r.Name AS RoleName
-                    FROM [User] u
-                    LEFT JOIN [UserRole] ur ON u.Id = ur.UserId
-                    LEFT JOIN [Role] r ON ur.RoleId = r.Id", connection))
+            SELECT u.""Id"", u.""Name"", u.""LastName"", u.""Email"", u.""Identification"", u.""Password"",
+                   r.""Name"" AS ""RoleName""
+            FROM ""User"" u
+            LEFT JOIN ""UserRole"" ur ON u.""Id"" = ur.""UserId""
+            LEFT JOIN ""Role"" r ON ur.""RoleId"" = r.""Id""", connection))
                 {
                     await connection.OpenAsync();
 
@@ -75,18 +75,19 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             return users;
         }
 
+
         public async Task<User> GetByIdAsync(long id)
         {
             if (id <= 0)
                 throw new ArgumentException("Id must be greater than zero.", nameof(id));
 
             const string query = @"
-                SELECT u.Id, u.Name, u.LastName, u.Email, u.Identification, u.Password, 
-                       r.Name AS RoleName
-                FROM [User] u
-                LEFT JOIN [UserRole] ur ON u.Id = ur.UserId
-                LEFT JOIN [Role] r ON ur.RoleId = r.Id
-                WHERE u.Id = @Id";
+            SELECT u.""Id"", u.""Name"", u.""LastName"", u.""Email"", u.""Identification"", u.""Password"", 
+                   r.""Name"" AS ""RoleName""
+            FROM ""User"" u
+            LEFT JOIN ""UserRole"" ur ON u.""Id"" = ur.""UserId""
+            LEFT JOIN ""Role"" r ON ur.""RoleId"" = r.""Id""
+            WHERE u.""Id"" = @Id";
 
             try
             {
@@ -123,6 +124,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             return null;
         }
 
+
         public async Task<User> GetByIdentificationAsync(string identification)
         {
             if (string.IsNullOrWhiteSpace(identification))
@@ -131,7 +133,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM [User] WHERE Identification = @Identification", connection))
+                using (var command = new NpgsqlCommand("SELECT * FROM \"User\" WHERE Identification = @Identification", connection))
                 {
                     command.Parameters.AddWithValue("@Identification", identification.Trim());
                     await connection.OpenAsync();
@@ -170,7 +172,7 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("INSERT INTO [User] (Name, LastName, Email, Identification, Password) VALUES (@Name, @LastName, @Email, @Identification, @Password)", connection))
+                using (var command = new NpgsqlCommand("INSERT INTO \"User\" (Name, LastName, Email, Identification, Password) VALUES (@Name, @LastName, @Email, @Identification, @Password)", connection))
                 {
                     command.Parameters.AddWithValue("@Name", user.Name.Trim());
                     command.Parameters.AddWithValue("@LastName", user.LastName.Trim());
@@ -194,17 +196,26 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
+            const string query = @"
+UPDATE ""User"" 
+SET ""Name"" = @Name, 
+    ""LastName"" = @LastName, 
+    ""Email"" = @Email, 
+    ""Identification"" = @Identification, 
+    ""Password"" = @Password 
+WHERE ""Id"" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("UPDATE [User] SET Name = @Name, LastName = @LastName, Email = @Email, Identification = @Identification, Password = @Password WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", user.Id);
-                    command.Parameters.AddWithValue("@Name", user.Name.Trim());
-                    command.Parameters.AddWithValue("@LastName", user.LastName.Trim());
-                    command.Parameters.AddWithValue("@Email", user.Email.Trim());
-                    command.Parameters.AddWithValue("@Identification", string.IsNullOrWhiteSpace(user.Identification) ? DBNull.Value : (object)user.Identification.Trim());
-                    command.Parameters.AddWithValue("@Password", user.Password.Trim());
+                    command.Parameters.AddWithValue("@Name", user.Name != null ? (object)user.Name.Trim() : DBNull.Value);
+                    command.Parameters.AddWithValue("@LastName", user.LastName != null ? (object)user.LastName.Trim() : DBNull.Value);
+                    command.Parameters.AddWithValue("@Email", user.Email != null ? (object)user.Email.Trim() : DBNull.Value);
+                    command.Parameters.AddWithValue("@Identification", !string.IsNullOrWhiteSpace(user.Identification) ? (object)user.Identification.Trim() : DBNull.Value);
+                    command.Parameters.AddWithValue("@Password", !string.IsNullOrWhiteSpace(user.Password) ? (object)user.Password.Trim() : DBNull.Value);
 
                     await connection.OpenAsync();
                     await command.ExecuteNonQueryAsync();
@@ -214,6 +225,11 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             {
                 Console.WriteLine($"PostgreSQL Error: {ex.Message}");
                 throw new Exception("An error occurred while updating the user in the database.", ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw new Exception("An unexpected error occurred.", ex);
             }
         }
 
@@ -225,8 +241,8 @@ namespace VirtualCatalogAPI.Data.Repository.Users
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var deleteUserRoleCommand = new NpgsqlCommand("DELETE FROM UserRole WHERE UserId = @UserId", connection))
-                using (var command = new NpgsqlCommand("DELETE FROM [User] WHERE Id = @Id", connection))
+                using (var deleteUserRoleCommand = new NpgsqlCommand("DELETE FROM \"UserRole\" WHERE UserId = @UserId", connection))
+                using (var command = new NpgsqlCommand("DELETE FROM \"User\" WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     deleteUserRoleCommand.Parameters.AddWithValue("@UserId", id);

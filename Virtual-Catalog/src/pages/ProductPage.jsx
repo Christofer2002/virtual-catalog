@@ -89,7 +89,7 @@ export default function ProductPage() {
       {error && <p className="text-red-500 mb-4">{error}</p>}
       {userRole === "Admin" && (
         <Link
-          to="/products/create"
+          to="/virtual-catalog/products/create"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mb-6"
         >
           <FaPlus className="mr-2" />
@@ -115,7 +115,7 @@ export default function ProductPage() {
             <div className="flex justify-between w-full mt-4">
               {userRole === "Admin" && (
                 <Link
-                  to={`/products/${product.id}/edit`}
+                  to={`/virtual-catalog/products/${product.id}/edit`}
                   className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                 >
                   <FaEdit className="mr-2" />

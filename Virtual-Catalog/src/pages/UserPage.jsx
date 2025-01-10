@@ -72,7 +72,7 @@ export default function UserPage() {
       <ToastContainer />
       <h1 className="text-3xl font-bold mb-6 text-blue-800">Users</h1>
       <Link
-        to="/users/create"
+        to="/virtual-catalog//users/create"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mb-4"
       >
         <FaPlus className="mr-2" />
@@ -95,7 +95,7 @@ export default function UserPage() {
               </p>
               <div className="flex justify-between mt-4">
                 <Link
-                  to={`/users/${user.id}/edit`}
+                  to={`/virtual-catalog/users/${user.id}/edit`}
                   className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
                 >
                   <FaEdit className="mr-2" />

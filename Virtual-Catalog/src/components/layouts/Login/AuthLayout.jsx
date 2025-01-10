@@ -28,7 +28,7 @@ const AuthLayout = () => {
       const response = await login(credentials);
       setAuthData(response);
       toast.success("Login successful");
-      navigate("/virtual-category");
+      navigate("/virtual-catalog/");
     } catch (error) {
       toast.error(error.message || "Incorrect credentials");
     } finally {

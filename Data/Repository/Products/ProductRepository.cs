@@ -16,11 +16,12 @@ namespace VirtualCatalogAPI.Data.Repository.Products
         public async Task<List<Product>> GetAllAsync()
         {
             var products = new List<Product>();
+            const string query = "SELECT * FROM \"Product\"";
 
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM Product", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     await connection.OpenAsync();
 
@@ -43,7 +44,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in GetAllAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving products from the database.", ex);
             }
 
@@ -54,10 +55,12 @@ namespace VirtualCatalogAPI.Data.Repository.Products
         {
             if (id <= 0) throw new ArgumentException("Product ID must be greater than zero.", nameof(id));
 
+            const string query = "SELECT * FROM \"Product\" WHERE \"Id\" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM Product WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
                     await connection.OpenAsync();
@@ -81,7 +84,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in GetProductByIdAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving the product from the database.", ex);
             }
 
@@ -95,9 +98,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand(
-                    "INSERT INTO Product (Name, Description, Price, Stock, CategoryId) VALUES (@Name, @Description, @Price, @Stock, @CategoryId)",
-                    connection))
+                using (var command = new NpgsqlCommand("INSERT INTO \"Product\" (\"Name\", \"Description\", \"Price\", \"Stock\", \"CategoryId\") VALUES(@Name, @Description, @Price, @Stock, @CategoryId)", connection))
                 {
                     command.Parameters.AddWithValue("@Name", product.Name.Trim());
                     command.Parameters.AddWithValue("@Description", string.IsNullOrWhiteSpace(product.Description) ? DBNull.Value : product.Description.Trim());
@@ -111,7 +112,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in AddAsync: {ex.Message}");
                 throw new Exception("An error occurred while adding the product to the database.", ex);
             }
         }
@@ -123,9 +124,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand(
-                    "UPDATE Product SET Name = @Name, Description = @Description, Price = @Price, Stock = @Stock, CategoryId = @CategoryId WHERE Id = @Id",
-                    connection))
+                using (var command = new NpgsqlCommand("UPDATE \"Product\" SET \"Name\" = @Name, \"Description\" = @Description, \"Price\" = @Price, \"Stock\" = @Stock, \"CategoryId\" = @CategoryId WHERE \"Id\" = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", product.Id);
                     command.Parameters.AddWithValue("@Name", product.Name.Trim());
@@ -140,7 +139,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in UpdateAsync: {ex.Message}");
                 throw new Exception("An error occurred while updating the product in the database.", ex);
             }
         }
@@ -149,10 +148,12 @@ namespace VirtualCatalogAPI.Data.Repository.Products
         {
             if (id <= 0) throw new ArgumentException("Product ID must be greater than zero.", nameof(id));
 
+            const string query = "DELETE FROM \"Product\" WHERE \"Id\" = @Id";
+
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("DELETE FROM Product WHERE Id = @Id", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -162,7 +163,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in DeleteAsync: {ex.Message}");
                 throw new Exception("An error occurred while deleting the product from the database.", ex);
             }
         }
@@ -172,11 +173,12 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             if (categoryId <= 0) throw new ArgumentException("Category ID must be greater than zero.", nameof(categoryId));
 
             var products = new List<Product>();
+            const string query = "SELECT * FROM \"Product\" WHERE \"CategoryId\" = @CategoryId";
 
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
-                using (var command = new NpgsqlCommand("SELECT * FROM Product WHERE CategoryId = @CategoryId", connection))
+                using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@CategoryId", categoryId);
                     await connection.OpenAsync();
@@ -200,7 +202,7 @@ namespace VirtualCatalogAPI.Data.Repository.Products
             }
             catch (NpgsqlException ex)
             {
-                Console.WriteLine($"PostgreSQL Error: {ex.Message}");
+                Console.WriteLine($"PostgreSQL Error in GetByCategoryAsync: {ex.Message}");
                 throw new Exception("An error occurred while retrieving products by category from the database.", ex);
             }
 
