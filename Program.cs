@@ -86,9 +86,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:5173", // Allow localhost
+            "https://www.devbychris.com/virtual-catalog/" // Allow domain
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
